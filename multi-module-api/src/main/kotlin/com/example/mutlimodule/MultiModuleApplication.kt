@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MutliModuleApplication
+class MultiModuleApplication
 
 fun main(args: Array<String>) {
-    runApplication<MutliModuleApplication>(*args)
+    runApplication<MultiModuleApplication>(*args)
 }

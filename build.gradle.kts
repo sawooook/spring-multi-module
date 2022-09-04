@@ -1,18 +1,21 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.21"
-    id("org.springframework.boot") version "2.7.3" apply false
-    id("io.spring.dependency-management") version "1.0.13.RELEASE" apply false
-    kotlin("plugin.spring") version "1.6.21" apply false
+    kotlin("jvm")
+    id("org.springframework.boot") apply false
+    id("io.spring.dependency-management") apply false
+    kotlin("plugin.spring") apply false
     kotlin("plugin.jpa") version "1.6.21" apply false
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val projectGroup: String by project
+val applicationVersion: String by project
+
 allprojects {
-    group = "com.example"
-    version = "0.0.1-SNAPSHOT"
+    group = projectGroup
+    version = applicationVersion
 
     repositories {
         mavenCentral()
@@ -37,11 +40,11 @@ subprojects {
     }
 
     tasks.getByName("bootJar") {
-        enabled  = false
+        enabled = false
     }
 
     tasks.getByName("jar") {
-        enabled  = false
+        enabled = false
     }
 
     tasks.withType<KotlinCompile> {
